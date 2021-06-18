@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/xenial64"
+
+   config.vm.provider :virtualbox do |vb|
+     vb.memory = 1024
+   end
+
+  config.vm.define "a01" do |v|
+    v.vm.hostname = "a01.devops"
+    v.vm.network :private_network, ip: "192.168.61.3"
+  end
+
+
+end
