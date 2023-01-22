@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "centos/7"
+
+   config.vm.provider :virtualbox do |vb|
+     vb.memory = 1024
+   end
+
+  config.vm.define "a02" do |v|
+    v.vm.hostname = "a02.devops"
+    v.vm.network :private_network, ip: "192.168.61.4"
+  end
+
+
+end
